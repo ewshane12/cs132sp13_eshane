@@ -22,20 +22,16 @@ int main(void)
         NSLog(@" initialized array %@.", words);
         
         [words addObject:(@", ")];
-        NSlog(@" adding , %@", words);        
+        NSLog(@" adding , %@", words);
         
-        [words addObject:(@"Hello")];
-        NSlog(@" adding Hello %@", words);
+        [words addObject:(@" Hello ")];
+        NSLog(@" adding Hello %@", words);
         
-        [words addObject:(@"World")];
-        NSlog(@" adding World %@", words);
+        [words addObject:(@" World ")];
+        NSLog(@" adding World %@", words);
         
         [words sortUsingSelector: @selector(localizedCaseInsensitiveCompare:)];
         NSLog(@"Sorting alphabeically , %@",words);
-        
-        
-        
-    
     
     }
     return EXIT_SUCCESS;
