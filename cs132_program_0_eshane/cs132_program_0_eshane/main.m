@@ -17,21 +17,35 @@ int main(void)
     
         NSMutableArray* words = nil;
         
-        NSLog(@"array uninitialized %@.", words);
+        NSLog(@"words uninitialized %@.", words);
         words = [[NSMutableArray alloc] init];
-        NSLog(@" initialized array %@.", words);
+        NSLog(@" initialized words %@.", words);
         
         [words addObject:(@", ")];
         NSLog(@" adding , %@", words);
         
-        [words addObject:(@" Hello ")];
+        [words addObject:(@"Hello")];
         NSLog(@" adding Hello %@", words);
         
-        [words addObject:(@" World ")];
+        [words addObject:(@"World ")];
         NSLog(@" adding World %@", words);
         
         [words sortUsingSelector: @selector(localizedCaseInsensitiveCompare:)];
         NSLog(@"Sorting alphabeically , %@",words);
+        
+        
+        NSMutableString* word = nil;
+        
+        NSLog(@"word uninitialized %@.", word);
+        word = [[ NSMutableString alloc ] initWithString:[words objectAtIndex:0]];
+        NSLog(@" initialized word %@.", word);
+        
+        [word appendString : [words objectAtIndex:2]];
+         NSLog(@"Post append %@.", word);
+         
+        [word insertString:[words objectAtIndex:1] atIndex:0];
+        NSLog(@"Post reformat %@.", word);
+        
     
     }
     return EXIT_SUCCESS;
