@@ -8,8 +8,13 @@
 
 -(void) pressKey: (char) keyPress
 {
-    NSLog(@"STUB response to '%@' message received by object at %p (%@)",
-          NSStringFromSelector(_cmd), self, self);return;
+    
+    if (numberOnScreen <= 57 && numberOnScreen >= 48)
+    {
+        numberOnScreen = (numberOnScreen * 10 + numberOnScreen);
+    }
+    else(numberOnScreen = numberOnScreen);
+return;
 }
 
 - (id)init
