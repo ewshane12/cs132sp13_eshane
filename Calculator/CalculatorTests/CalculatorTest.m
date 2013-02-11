@@ -27,6 +27,8 @@
  @brief For testing Calculator class
  */
 @interface CalculatorTest : SenTestCase
+
+
 @end
 
 @implementation CalculatorTest

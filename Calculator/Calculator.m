@@ -2,6 +2,10 @@
 
 @implementation Calculator
 
+@synthesize numberOnScreen;
+@synthesize numberAccumulated;
+@synthesize operatingPending;
+
 - (id)init
 {
     self = [super init];
