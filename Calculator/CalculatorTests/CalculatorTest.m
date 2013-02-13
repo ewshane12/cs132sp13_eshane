@@ -71,23 +71,24 @@
     assertThatInt([sut numberOnScreen], is(equalToInt(14)));
 }
 
-- (void)-testPressingLittlecClearsScreen
+- (void) testPressingLittlecClearsScreen
 {
-    [self pressKeys:@"123C"];
+    [self pressKeys:@"123c"];
     assertThatInt([sut numberOnScreen], is(equalToInt(0)));
-    
 }
+    
+- (void) testPressingBigCClearsScreen
+{
+    [self pressKeys:@"321C"];
+    assertThatInt([sut numberOnScreen], is(equalToInt(0)));
+        
+}
+
+    
 
 - (void)testHasAccumulatorInitializedToZero
 {
     assertThat(sut, hasProperty(@"numberAccumulated", equalToInt(0)));
-}
-
-- (void)-testPressingBigCClearsScreen
-{
-    [self pressKeys:@"321c"];
-    assertThatInt([sut numberOnScreen], is(equalToInt(0)));
-    
 }
 
 
@@ -173,5 +174,4 @@
         [sut pressKey:[keystring characterAtIndex:i]];
     }
 }
-
 @end
