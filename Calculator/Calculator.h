@@ -8,7 +8,7 @@
 
 -(void) pressKey: (char) keyPress;
 
-bool isADigit (char keyPress);
-
+bool isADigit (char digit);
+bool isClearScreenKey(char someChar);
 @end
 

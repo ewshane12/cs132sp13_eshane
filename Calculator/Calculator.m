@@ -15,7 +15,7 @@
         numberOnScreen = (numberOnScreen * 10 + keyPress - 48);
     }
     
-    else if(keyPress == 67 || keyPress == 99)
+    else if([self isClearScreenKey:keyPress])
     {
         numberOnScreen = 0;
     }
@@ -39,6 +39,18 @@ if (digit <= '9' && digit >= '0')
         return NO;
     }
 
+}
+
+-(BOOL) isClearScreenKey: (char) someChar
+{
+    if (someChar == 67 || someChar == 99)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 
