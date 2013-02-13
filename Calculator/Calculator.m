@@ -9,11 +9,12 @@
 -(void) pressKey: (char) keyPress
 {
     
-    if (numberOnScreen <= 48 && numberOnScreen >= 57)
+    if (keyPress <= '9' && keyPress >= '0')
+    
     {
-        numberOnScreen = (numberOnScreen * 10 + numberOnScreen);
+        numberOnScreen = numberOnScreen * 10 + keyPress - 48;
     }
-    if(numberOnScreen == 67 || numberOnScreen == 99)
+    else if(keyPress == 67 || keyPress == 99)
     {
         numberOnScreen = 0;
     }

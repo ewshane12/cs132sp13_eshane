@@ -73,13 +73,13 @@
 
 - (void) testPressingLittlecClearsScreen
 {
-    [self pressKeys:@"123c"];
+    [self pressKeys:@"123C"];
     assertThatInt([sut numberOnScreen], is(equalToInt(0)));
 }
     
 - (void) testPressingBigCClearsScreen
 {
-    [self pressKeys:@"321C"];
+    [self pressKeys:@"321c"];
     assertThatInt([sut numberOnScreen], is(equalToInt(0)));
         
 }
