@@ -7,8 +7,10 @@
 @property (assign) char operatingPending;
 
 -(void) pressKey: (char) keyPress;
+-(void) appendDigit: (char) changedDigit;
 
 bool isADigit (char digit);
 bool isClearScreenKey(char someChar);
+
 @end
 

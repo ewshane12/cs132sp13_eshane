@@ -12,7 +12,7 @@
     //    if(isADigit (keyPress))
     if([self isADigit:keyPress])
     {
-        numberOnScreen = (numberOnScreen * 10 + keyPress - 48);
+        [self appendDigit: keyPress];
     }
     
     else if([self isClearScreenKey:keyPress])
@@ -62,6 +62,11 @@ if (digit <= '9' && digit >= '0')
         //Set up initial calculator conditions here
     }
     return self;
+}
+
+-(void) appendDigit: (char) changedDigit
+{
+    numberOnScreen = (numberOnScreen * 10 + changedDigit - 48);
 }
 
 -(NSString*) description
