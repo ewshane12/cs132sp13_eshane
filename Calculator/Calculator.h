@@ -8,4 +8,6 @@
 
 -(void) pressKey: (char) keyPress;
 
+-(BOOL) isADigit: (char) digit;
+
 @end
