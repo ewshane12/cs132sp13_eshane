@@ -2,9 +2,9 @@
 
 @implementation Calculator
 
-@synthesize numberOnScreen;
-@synthesize numberAccumulated;
-@synthesize operatingPending;
+@synthesize numberOnScreen = _DNU_numberOnScreen;
+@synthesize numberAccumulated = _DNU_numberAccumulated;
+@synthesize operatingPending = _DNU_operationPending;
 
 -(void) pressKey: (char) keyPress
 {
@@ -17,7 +17,7 @@
     
     else if([self isClearScreenKey:keyPress])
     {
-        numberOnScreen = 0;
+        _DNU_numberOnScreen = 0;
     }
     
     else
@@ -60,13 +60,16 @@ if (digit <= '9' && digit >= '0')
     if (self)
     {
         //Set up initial calculator conditions here
+        _DNU_numberOnScreen = 0;
+        _DNU_numberAccumulated = 0;
+        _DNU_operationPending = 43;
     }
     return self;
 }
 
 -(void) appendDigit: (char) changedDigit
 {
-    numberOnScreen = (numberOnScreen * 10 + changedDigit - 48);
+    _DNU_numberOnScreen = (_DNU_numberOnScreen * 10 + changedDigit - 48);
 }
 
 -(NSString*) description
