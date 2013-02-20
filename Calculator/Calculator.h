@@ -9,8 +9,9 @@
 -(void) pressKey: (char) keyPress;
 -(void) appendDigit: (char) changedDigit;
 
+@end
+
 bool isADigit (char digit);
 bool isClearScreenKey(char someChar);
 
-@end
 

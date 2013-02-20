@@ -30,10 +30,10 @@ return;
 
 -(BOOL) isADigit: (char) digit
 {
-if (digit <= '9' && digit >= '0')
-{
-    return YES;
-}
+    if (digit <= '9' && digit >= '0')
+    {
+        return YES;
+    }
     else
     {
         return NO;
