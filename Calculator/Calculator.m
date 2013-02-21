@@ -65,6 +65,30 @@ return;
     }
 }
 
+-(BOOL) isResultKey: (char) someChar
+{
+    if (someChar == 75)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+-(BOOL) isArithmeticAllKey: (char) someChar
+{
+    if (someChar == 37 || someChar == 42 || someChar == 43 || someChar == 45 || someChar == 47)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 
 - (id)init
 {
