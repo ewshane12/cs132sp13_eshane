@@ -53,6 +53,18 @@ return;
     }
 }
 
+-(BOOL) isClearAllKey: (char) someChar
+{
+    if (someChar == 65 || someChar == 97)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
 
 - (id)init
 {
