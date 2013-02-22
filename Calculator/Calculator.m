@@ -21,6 +21,7 @@
     }
     else if ([self isArithmeticAllKey: keyPress])
     {
+        [self computeAndDisplayResult];
         [self registerArithmetic : keyPress];
     }
     else if ([self isClearAllKey: keyPress])
@@ -122,35 +123,36 @@ return;
 
 -(void) computeAndDisplayResult
 {
-    int numberOnScreen = _numberOnScreen;
-    int numberAccumulated = _numberAccumulated;
-    
+    int RHS = _numberOnScreen;
+    int LHS = _numberAccumulated;
+    int result;
     
         if([self operatingPending] == '%')
         {
-            numberOnScreen = numberAccumulated % numberOnScreen;
+            result = LHS % RHS;
         }
         if([self operatingPending] == '*')
         {
-            numberOnScreen = numberAccumulated * numberOnScreen;
+            result = LHS * RHS;
         }
         if([self operatingPending] == '+')
         {
-            numberOnScreen = numberAccumulated + numberOnScreen;
+            result = LHS + RHS;
         }
         if([self operatingPending] == '-')
         {
-            numberOnScreen = numberAccumulated - numberOnScreen;
+            result = LHS - RHS;
         }
         if([self operatingPending] == '/')
         {
-           numberOnScreen = numberAccumulated / numberOnScreen;
+           result = LHS / RHS;
         }
         else
         {
             [self setNumberOnScreen:[self numberOnScreen]];
         }
     
+    [self setNumberOnScreen:result];
     [self clearAccumulator:0];
     [self clearOperator:'?'];
 }
