@@ -8,6 +8,8 @@
 
 -(void) pressKey: (char) keyPress;
 -(void) appendDigit: (char) changedDigit;
+-(void) registerArithmetic:(char)theOperator;
+-(void) computeAndDisplayResult;
 
 @end
 

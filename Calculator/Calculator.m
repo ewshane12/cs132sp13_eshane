@@ -89,6 +89,48 @@ return;
     }
 }
 
+-(void) registerArithmetic:(char)theOperator
+{
+    [self setNumberAccumulated:[self numberOnScreen]];
+    [self setNumberOnScreen:0];
+    [self setOperatingPending:theOperator];
+}
+
+-(void) computeAndDisplayResult
+{
+    int numberOnScreen = _DNU_numberOnScreen;
+    int numberAccumulated = _DNU_numberAccumulated;
+    
+    
+        if([self operatingPending] == 37)
+        {
+            numberOnScreen = numberAccumulated % numberOnScreen;
+        }
+        if([self operatingPending] == 42)
+        {
+            numberOnScreen = numberAccumulated * numberOnScreen;
+        }
+        if([self operatingPending] == 43)
+        {
+            numberOnScreen = numberAccumulated + numberOnScreen;
+        }
+        if([self operatingPending] == 45)
+        {
+            numberOnScreen = numberAccumulated - numberOnScreen;
+        }
+        if([self operatingPending] == 47)
+        {
+           numberOnScreen = numberAccumulated / numberOnScreen;
+        }
+        else
+        {
+            [self setNumberOnScreen:[self numberOnScreen]];
+        }
+    
+    [self setNumberAccumulated:0];
+    [self setOperatingPending:'?'];
+}
+
 
 - (id)init
 {
