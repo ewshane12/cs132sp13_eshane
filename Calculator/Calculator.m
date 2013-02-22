@@ -91,7 +91,7 @@ return;
 
 -(BOOL) isResultKey: (char) someChar
 {
-    if (someChar == 75)
+    if (someChar == '=')
     {
         return YES;
     }
@@ -103,7 +103,7 @@ return;
 
 -(BOOL) isArithmeticAllKey: (char) someChar
 {
-    if (someChar == 37 || someChar == 42 || someChar == 43 || someChar == 45 || someChar == 47)
+    if (someChar == '%' || someChar == '*' || someChar == '+' || someChar == '-' || someChar == '/')
     {
         return YES;
     }
@@ -126,23 +126,23 @@ return;
     int numberAccumulated = _numberAccumulated;
     
     
-        if([self operatingPending] == 37)
+        if([self operatingPending] == '%')
         {
             numberOnScreen = numberAccumulated % numberOnScreen;
         }
-        if([self operatingPending] == 42)
+        if([self operatingPending] == '*')
         {
             numberOnScreen = numberAccumulated * numberOnScreen;
         }
-        if([self operatingPending] == 43)
+        if([self operatingPending] == '+')
         {
             numberOnScreen = numberAccumulated + numberOnScreen;
         }
-        if([self operatingPending] == 45)
+        if([self operatingPending] == '-')
         {
             numberOnScreen = numberAccumulated - numberOnScreen;
         }
-        if([self operatingPending] == 47)
+        if([self operatingPending] == '/')
         {
            numberOnScreen = numberAccumulated / numberOnScreen;
         }
@@ -164,7 +164,7 @@ return;
         //Set up initial calculator conditions here
         _numberOnScreen = 0;
         _numberAccumulated = 0;
-        _operatingPending = 43;
+        _operatingPending = '+';
     }
     return self;
 }
