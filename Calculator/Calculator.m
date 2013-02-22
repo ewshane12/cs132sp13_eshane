@@ -17,7 +17,7 @@
     
     else if([self isClearScreenKey:keyPress])
     {
-        _DNU_numberOnScreen = 0;
+        [self clearNumberOnScreen:0];
     }
     
     else
@@ -26,6 +26,21 @@
     }
 
 return;
+}
+
+-(void) clearNumberOnScreen:(char)numClearer
+{
+    [self setNumberOnScreen:0];
+}
+
+-(void) clearAccumulator:(char)accClearer
+{
+    [self setNumberAccumulated:0];
+}
+
+-(void) clearOperator:(char)opClearer
+{
+    [self setOperatingPending:'?'];
 }
 
 -(BOOL) isADigit: (char) digit
@@ -92,7 +107,7 @@ return;
 -(void) registerArithmetic:(char)theOperator
 {
     [self setNumberAccumulated:[self numberOnScreen]];
-    [self setNumberOnScreen:0];
+    [self clearNumberOnScreen:0];
     [self setOperatingPending:theOperator];
 }
 
@@ -127,8 +142,8 @@ return;
             [self setNumberOnScreen:[self numberOnScreen]];
         }
     
-    [self setNumberAccumulated:0];
-    [self setOperatingPending:'?'];
+    [self clearAccumulator:0];
+    [self clearOperator:'?'];
 }
 
 
