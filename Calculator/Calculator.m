@@ -15,6 +15,19 @@
     {
         [self clearNumberOnScreen:0];
     }
+    else if ([self isResultKey:keyPress])
+    {
+        [self computeAndDisplayResult];
+    }
+    else if ([self isArithmeticAllKey: keyPress])
+    {
+        [self registerArithmetic : keyPress];
+    }
+    else if ([self isClearAllKey: keyPress])
+    {
+        [self clearOperator: keyPress];
+        [self clearAccumulator : keyPress];
+    }
     
     else
     {

@@ -106,7 +106,7 @@
 - (void)testPressingMinusSetsOperationPendingToMinus
 {
     [self pressKeys:@"8-"];
-    assertThatChar([sut operationPending], equalToChar('-'));
+    assertThatChar([sut operatingPending], is(equalToChar('-')));
 }
 
 - (void)testPressingPlusSetsAccumulator
@@ -118,7 +118,7 @@
 - (void)testPressingPlusSetsOperationPendingToPlus
 {
     [self pressKeys:@"6+"];
-    assertThatChar([sut operationPending], is(equalToChar('+')));
+    assertThatChar([sut operatingPending], is(equalToChar('+')));
 }
 
 -(void)testThirtyfourPlusSixEqualsForty
