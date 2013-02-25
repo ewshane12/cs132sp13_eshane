@@ -12,12 +12,17 @@
 @property int numerator
 @property int denomenator
 
--initWithNumerator:andDenominator: (int num, int denom);
+-(void)initWithNumerator:andDenominator: (int num, int denom);
 initWithFraction: (Fraction*);
--negative(Fraction*);
--reciprocal(Fraction*);
-
--(void) floatValue (float)
+-(void)negative: (Fraction*);
+-(void)reciprocal: (Fraction*);
+-(void)sumWith: (Fraction*);
+-(void)subtractFrom: (Fraction*);
+-(void)minus: (Fraction*);
+-(void)multiplyBy: (Fraction*);
+-(void)divideBy: (Fraction*);
+-(void)divideInto: (Fraction*);
+-(void) floatValue: (float);
 
 
 @end

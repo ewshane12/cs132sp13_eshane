@@ -20,6 +20,15 @@
     return 0;
 }
 
+-negative
+{
+    return Fraction*;
+}
+
+-reciprocal
+{
+    return Fraction*;
+}
 
 
 @end
