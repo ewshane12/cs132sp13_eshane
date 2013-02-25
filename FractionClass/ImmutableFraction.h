@@ -9,5 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ImmutableFraction : NSObject
+@property int numerator
+@property int denomenator
+
+-initWithNumerator:andDenominator: (int num, int denom);
+initWithFraction: (Fraction*);
+
+
+
 
 @end
