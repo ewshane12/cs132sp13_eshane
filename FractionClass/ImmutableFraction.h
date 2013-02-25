@@ -15,7 +15,7 @@
 -initWithNumerator:andDenominator: (int num, int denom);
 initWithFraction: (Fraction*);
 
-
+-(void) floatValue (float)
 
 
 @end
