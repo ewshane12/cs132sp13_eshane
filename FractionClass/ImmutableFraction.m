@@ -30,5 +30,33 @@
     return Fraction*;
 }
 
+-sumWith
+{
+    return nil:
+}
 
+-subtractFrom
+{
+    return nil:
+}
+
+-minus
+{
+    return nil;
+}
+
+-multiplyBy
+{
+    return nil:
+}
+
+-divideBy
+{
+    return nil:
+}
+
+-divideInto
+{
+    return nil:
+}
 @end
