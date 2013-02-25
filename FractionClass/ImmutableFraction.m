@@ -10,4 +10,16 @@
 
 @implementation ImmutableFraction
 
+-(id) init
+{
+    return 0;
+}
+
+-(id)description
+{
+    return 0;
+}
+
+
+
 @end

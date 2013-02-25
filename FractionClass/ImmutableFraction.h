@@ -14,6 +14,8 @@
 
 -initWithNumerator:andDenominator: (int num, int denom);
 initWithFraction: (Fraction*);
+-negative(Fraction*);
+-reciprocal(Fraction*);
 
 -(void) floatValue (float)
 
