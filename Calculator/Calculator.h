@@ -21,4 +21,3 @@ bool isClearScreenKey(char someChar);
 bool isClearAllKey (char someChar);
 bool isResultKey (char someChar);
 bool isArithmeticAllKey (char someChar);
-

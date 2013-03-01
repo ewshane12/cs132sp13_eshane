@@ -130,19 +130,19 @@ return;
         {
             result = LHS % RHS;
         }
-        if([self operatingPending] == '*')
+        if ([self operatingPending] == '*')
         {
             result = LHS * RHS;
         }
-        if([self operatingPending] == '+')
+        if ([self operatingPending] == '+')
         {
             result = LHS + RHS;
         }
-        if([self operatingPending] == '-')
+        if ([self operatingPending] == '-')
         {
             result = LHS - RHS;
         }
-        if([self operatingPending] == '/')
+        if ([self operatingPending] == '/')
         {
            result = LHS / RHS;
         }
