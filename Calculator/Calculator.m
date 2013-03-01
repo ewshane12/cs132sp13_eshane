@@ -154,7 +154,7 @@ return;
     [self setNumberOnScreen:result];
     [self clearAccumulator:0];
     [self clearOperator:'?'];
-}
+} 
 
 
 - (id)init
