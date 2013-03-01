@@ -28,7 +28,7 @@
         [self clearOperator: keyPress];
         [self clearAccumulator : keyPress];
     }
-    
+     
     else
     {
         NSLog(@"Uncovered argument '%c' in %@ message received by object at %p (%@)", keyPress, NSStringFromSelector(_cmd), self, self);
