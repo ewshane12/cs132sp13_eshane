@@ -4,7 +4,6 @@
 
 -(void) pressKey: (char) keyPress
 {
-    
     //    if(isADigit (keyPress))
     if([self isADigit:keyPress])
     {
