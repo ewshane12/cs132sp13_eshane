@@ -6,7 +6,7 @@
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
-         continueAfterRunningActions = "Yes"
+         continueAfterRunningActions = "No"
          filePath = "Calculator.m"
          timestampString = "383866567.616508"
          startingColumnNumber = "9223372036854775807"
@@ -54,6 +54,26 @@
                ActionType = "Xcode.BreakpointAction.DebuggerCommand">
                <ActionContent
                   consoleCommand = "po [[NSString alloc] initWithFormat: @&quot;\t\t\t%s\t%s\t%s\n&quot;, [self LHS], [self Op], [self RHS]]">
+               </ActionContent>
+            </BreakpointActionProxy>
+         </Actions>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Calculator.m"
+         timestampString = "384108882.960349"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-appendDigit:"
+         landmarkType = "5">
+         <Actions>
+            <BreakpointActionProxy
+               ActionType = "Xcode.BreakpointAction.DebuggerCommand">
+               <ActionContent>
                </ActionContent>
             </BreakpointActionProxy>
          </Actions>
