@@ -173,6 +173,7 @@ return;
 -(void) appendDigit: (char) changedDigit
 {
     //added breakpoint
+    int oldValue = _numberOnScreen;
     _numberOnScreen = (_numberOnScreen * 10 + changedDigit - 48);
 }
 
