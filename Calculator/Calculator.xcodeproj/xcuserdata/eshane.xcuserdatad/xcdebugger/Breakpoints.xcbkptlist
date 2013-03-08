@@ -53,7 +53,7 @@
             <BreakpointActionProxy
                ActionType = "Xcode.BreakpointAction.DebuggerCommand">
                <ActionContent
-                  consoleCommand = "po [[NSString alloc] initWithFormat: @&quot;\t\t\t%d\t%c\t%d\n&quot;, [self numberAccumulated], [self operatingPending], [self numberOnScreen]]">
+                  consoleCommand = "po [[NSString alloc] initWithFormat: @&quot;\t\t\t%s\t%s\t%s\n&quot;, LHS, [self operatingPending], RHS]">
                </ActionContent>
             </BreakpointActionProxy>
          </Actions>
