@@ -22,5 +22,4 @@ initWithFraction: (Fraction*);
 
 
 
-
 @end
