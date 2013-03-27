@@ -18,21 +18,9 @@ initWithFraction: (Fraction*);
 
 
 -(void) floatValue: (float);
+-(void)negative: (Fraction*);
+-(void)reciprocal: (Fraction*);
 
-
-
-
-
-
--negative
-{
-    return Fraction*;
-}
-
--reciprocal
-{
-    return Fraction*;
-}
 
 
 @end
