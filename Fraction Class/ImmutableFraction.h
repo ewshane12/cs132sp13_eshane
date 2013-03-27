@@ -17,4 +17,10 @@
 initWithFraction: (Fraction*);
 
 
+-(void) floatValue: (float);
+
+
+
+
+
 @end
