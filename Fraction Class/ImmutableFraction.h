@@ -13,4 +13,8 @@
 @property (readonly) Numerator;
 @property (readonly) Denominator;
 
+-(void)initWithNumerator:andDenominator: (int num, int denom);
+initWithFraction: (Fraction*);
+
+
 @end
