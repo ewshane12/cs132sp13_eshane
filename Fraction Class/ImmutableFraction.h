@@ -22,4 +22,17 @@ initWithFraction: (Fraction*);
 
 
 
+
+
+-negative
+{
+    return Fraction*;
+}
+
+-reciprocal
+{
+    return Fraction*;
+}
+
+
 @end
