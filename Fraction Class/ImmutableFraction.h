@@ -10,4 +10,7 @@
 
 @interface ImmutableFraction : NSObject
 
+@property (readonly) Numerator;
+@property (readonly) Denominator;
+
 @end
