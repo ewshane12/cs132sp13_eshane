@@ -22,6 +22,46 @@
     return 0;
 }
 
+-sumWith
+{
+    return nil:
+}
+
+-subtractFrom
+{
+    return nil:
+}
+
+-minus
+{
+    return nil;
+}
+
+-multiplyBy
+{
+    return nil:
+}
+
+-divideBy
+{
+    return nil:
+}
+
+-divideInto
+{
+    return nil:
+}
+
+-negative
+{
+    return Fraction*;
+}
+
+-reciprocal
+{
+    return Fraction*;
+}
+
 
 
 

@@ -18,9 +18,14 @@ initWithFraction: (Fraction*);
 
 
 -(void) floatValue: (float);
--(void)negative: (Fraction*);
--(void)reciprocal: (Fraction*);
-
+-(Fraction*)negative: (Fraction*);
+-(Fraction*)reciprocal: (Fraction*);
+-(Fraction*)sumWith: (Fraction*);
+-(Fraction*)subtractFrom: (Fraction*);
+-(Fraction*)minus: (Fraction*);
+-(Fraction*)multiplyBy: (Fraction*);
+-(Fraction*)divideBy: (Fraction*);
+-(Fraction*)divideInto: (Fraction*);
 
 
 @end
