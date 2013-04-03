@@ -52,13 +52,23 @@
     return nil:
 }
 
--negative
+-(Fraction*)negative
 {
-    return Fraction*;
+    int x = [self Numerator];
+    int y = [self Denominator];
+    newNumerator = x * -1;
+    newDenominator = y * -1;
+    Fraction* theProduct = [[Fraction alloc] initWithNumerator:newNumerator
+                                                andDenominator:newDenominator];
+    
+    return theProduct;
 }
 
--reciprocal
+-(Fraction*)reciprocal
 {
+    
+    
+    
     return Fraction*;
 }
 
