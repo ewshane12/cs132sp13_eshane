@@ -13,7 +13,8 @@
 @property (readonly) Numerator;
 @property (readonly) Denominator;
 
--(void)initWithNumerator:andDenominator: (int num, int denom);
+-(id)initWithNumerator:(int num)
+          andDenominator:(int denom);
 initWithFraction: (Fraction*);
 
 
@@ -26,6 +27,7 @@ initWithFraction: (Fraction*);
 -(Fraction*)multiplyBy: (Fraction*);
 -(Fraction*)divideBy: (Fraction*);
 -(Fraction*)divideInto: (Fraction*);
+(int) GCD (int x, int y);
 
 
 @end

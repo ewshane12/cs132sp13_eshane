@@ -63,6 +63,11 @@
 }
 
 
+(int) GCD
+{
+    return nil;
+}
+
 
 
 
