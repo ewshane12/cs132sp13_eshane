@@ -67,7 +67,12 @@
 -(Fraction*)reciprocal
 {
     
-    
+    int x = [self Numerator];
+    int y = [self Denominator];
+    newNumerator = y;
+    newDenominator = x;
+    Fraction* theProduct = [[Fraction alloc] initWithNumerator:newNumerator
+                                                andDenominator:newDenominator];
     
     return Fraction*;
 }
