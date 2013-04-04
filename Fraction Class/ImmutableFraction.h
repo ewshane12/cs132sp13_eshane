@@ -10,24 +10,24 @@
 
 @interface ImmutableFraction : NSObject
 
-@property (readonly) Numerator;
-@property (readonly) Denominator;
+@property (readonly, assign) Numerator;
+@property (readonly, assign) Denominator;
 
 -(id)initWithNumerator:(int num)
-          andDenominator:(int denom);
-initWithFraction: (Fraction*);
+        andDenominator:(int denom);
+-(void)initWithFraction: (WCSFraction*)denom;
 
 
 -(void) floatValue: (float);
--(Fraction*)negative: (Fraction*);
--(Fraction*)reciprocal: (Fraction*);
--(Fraction*)sumWith: (Fraction*);
--(Fraction*)subtractFrom: (Fraction*);
--(Fraction*)minus: (Fraction*);
--(Fraction*)multiplyBy: (Fraction*);
--(Fraction*)divideBy: (Fraction*);
--(Fraction*)divideInto: (Fraction*);
--(Fraction*)reduced: (Fraction*);
+-(WCSFraction*)negative: (WCSFraction*)denom;
+-(WCSFraction*)reciprocal: (WCSFraction*)denom;
+-(WCSFraction*)sumWith: (WCSFraction*)denom;
+-(WCSFraction*)subtractFrom: (WCSFraction*)denom;
+-(WCSFraction*)minus: (WCSFraction*)denom;
+-(WCSFraction*)multiplyBy: (WCSFraction*)denom;
+-(WCSFraction*)divideBy: (WCSFraction*)denom;
+-(WCSFraction*)divideInto: (WCSFraction*)denom;
+-(WCSFraction*)reduced: (WCSFraction*)denom;
 (int) GCD (int x, int y);
 
 

@@ -19,72 +19,83 @@
 
 -(id)description
 {
-    return 0;
+    self = [self initWithNumerator:1
+                    andDenominator:1 ] ;
+    return self;
 }
 
--sumWith
-{
-    return nil:
-}
-
--subtractFrom
-{
-    return nil:
-}
-
--minus
-{
-    return nil;
-}
-
--multiplyBy
-{
-    return nil:
-}
-
--divideBy
-{
-    return nil:
-}
-
--divideInto
-{
-    return nil:
-}
-
--(Fraction*)negative
+-(WCSFraction*)negative
 {
     int x = [self Numerator];
     int y = [self Denominator];
     newNumerator = x * -1;
     newDenominator = y * -1;
-    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                 andDenominator:newDenominator];
     
     return theProduct;
 }
 
--(Fraction*)reciprocal
+-(WCSFraction*)reciprocal
 {
     
     int x = [self Numerator];
     int y = [self Denominator];
     newNumerator = y;
     newDenominator = x;
-    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                 andDenominator:newDenominator];
     
-    return Fraction*;
+    return WCSFraction*;
 }
 
--(Fraction*)reduced
+-(WCSFraction*)reduced
 {
     int x = [self Numerator];
     int y = [self Denominator];
     int newNumerator = x / GCD(a,b);
     int newDenominator = y / GCD(a,b);
-    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                andDenominator:newDenominator];
+}
 
+
+(int) GCD
+{
+    
+    return nil;
+}
+
+(WCSFraction*)minus: (WCSFraction*) denom
+{
+    WCSFraction* theAnswer + [self subtractFrom: denom];
+    
+    return theAnswer;
+}
+
+(WCSFraction*)subtractFrom
+{
+    
+}
+
+(WCSFraction*)divideBy;
+{
+    
+}
+
+(WCSFraction*)divideInto;
+{
+    
+}
+
+(WCSFraction*)sumWith;
+{
+    
+}
+
+(WCSFraction*)multiplyBy;
+{
+    
+}
 
 @end
