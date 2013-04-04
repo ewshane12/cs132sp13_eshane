@@ -27,6 +27,7 @@ initWithFraction: (Fraction*);
 -(Fraction*)multiplyBy: (Fraction*);
 -(Fraction*)divideBy: (Fraction*);
 -(Fraction*)divideInto: (Fraction*);
+-(Fraction*)reduced: (Fraction*);
 (int) GCD (int x, int y);
 
 

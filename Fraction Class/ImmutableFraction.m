@@ -58,7 +58,7 @@
     int y = [self Denominator];
     newNumerator = x * -1;
     newDenominator = y * -1;
-    Fraction* theProduct = [[Fraction alloc] initWithNumerator:newNumerator
+    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
                                                 andDenominator:newDenominator];
     
     return theProduct;
@@ -71,19 +71,20 @@
     int y = [self Denominator];
     newNumerator = y;
     newDenominator = x;
-    Fraction* theProduct = [[Fraction alloc] initWithNumerator:newNumerator
+    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
                                                 andDenominator:newDenominator];
     
     return Fraction*;
 }
 
-
-(int) GCD
+-(Fraction*)reduced
 {
-    return nil;
-}
-
-
+    int x = [self Numerator];
+    int y = [self Denominator];
+    int newNumerator = x / GCD(a,b);
+    int newDenominator = y / GCD(a,b);
+    Fraction* theAnswer = [[Fraction alloc] initWithNumerator:newNumerator
+                                               andDenominator:newDenominator];
 
 
 @end
