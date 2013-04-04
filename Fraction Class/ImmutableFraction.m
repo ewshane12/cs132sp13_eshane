@@ -31,9 +31,9 @@
     newNumerator = x * -1;
     newDenominator = y * -1;
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
-                                                andDenominator:newDenominator];
+                                                     andDenominator:newDenominator];
     
-    return theProduct;
+    return theAnswer;
 }
 
 -(WCSFraction*)reciprocal
@@ -46,7 +46,7 @@
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                 andDenominator:newDenominator];
     
-    return WCSFraction*;
+    return theAnswer;
 }
 
 -(WCSFraction*)reduced
@@ -66,24 +66,24 @@
     return nil;
 }
 
-(WCSFraction*)minus: (WCSFraction*) denom
+-(WCSFraction*)minus: (WCSFraction*) denom
 {
-    WCSFraction* theAnswer + [self subtractFrom: denom];
+    WCSFraction* theAnswer = [self subtractFrom: denom];
     
     return theAnswer;
 }
 
-(WCSFraction*)subtractFrom
+-(WCSFraction*)subtractFrom (WCSFraction*) denom;
 {
-    
+    return [self add: [denom negative]] ;
 }
 
-(WCSFraction*)divideBy;
+-(WCSFraction*)divideBy;
 {
-    
+    return [self multiply:[denom reciprocal]];
 }
 
-(WCSFraction*)divideInto;
+-(WCSFraction*)divideInto;
 {
     
 }
@@ -93,9 +93,25 @@
     
 }
 
-(WCSFraction*)multiplyBy;
+-(WCSFraction*)add: (WCSFraction*) denom
 {
+    int x = [self Numerator];
+    int y = [self Denominator];
+    int a = [denom Numerator];
+    int b = [denom Denominator];
     
+    int newNumerator = (x * b) + (y * a);
+    int newDenominator = (y * b);
+    
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
+                                                     andDenominator:newDenominator];
+    
+    return theAnswer;
+}
+
+-(WCSFraction*)multiplyBy: (WCSFraction*) denom
+{
+    return nil;
 }
 
 @end
