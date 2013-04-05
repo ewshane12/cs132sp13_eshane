@@ -85,12 +85,12 @@
 
 -(WCSFraction*)divideInto;
 {
-    
+    return [denom multiply:[self reciprocal]];
 }
 
 (WCSFraction*)sumWith;
 {
-    
+    return 0;
 }
 
 -(WCSFraction*)add: (WCSFraction*) denom
