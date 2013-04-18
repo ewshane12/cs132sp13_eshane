@@ -29,7 +29,6 @@
     int x = [self Numerator];
     int y = [self Denominator];
     newNumerator = x * -1;
-    newDenominator = y * -1;
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                      andDenominator:newDenominator];
     
@@ -86,11 +85,6 @@
 -(WCSFraction*)divideInto;
 {
     return [denom multiply:[self reciprocal]];
-}
-
-(WCSFraction*)sumWith;
-{
-    return 0;
 }
 
 -(WCSFraction*)add: (WCSFraction*) denom
