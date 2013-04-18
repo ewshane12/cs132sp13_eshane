@@ -48,10 +48,18 @@
 
 -(WCSFraction*)reduced
 {
+    
+    if([self Denominator] < 0)
+    {
+        int newNumerator = [self Numerator]*-1;
+        int newDenominator = [self Denominator]*-1;
+    }
+    
     int x = [self Numerator];
     int y = [self Denominator];
     int newNumerator = x / GCD(a,b);
     int newDenominator = y / GCD(a,b);
+    
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                      andDenominator:newDenominator];
 }
