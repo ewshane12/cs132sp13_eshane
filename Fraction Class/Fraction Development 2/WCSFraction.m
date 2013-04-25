@@ -10,31 +10,59 @@
 
 @implementation WCSFraction
 
+-(id)initWithNumerator:(int) num
+        andDenominator:(int) denom
+{
+    _Numerator = num;
+    _Denominator = denom;
+    
+    self = [super init];
+    if (self) {
+        [self setNumerator:num];
+        [self setDenominator:denom];
+    }
+    return self;
+}
+
+-(id)initWithFraction: (id) denom
+{
+    return nil;
+}
+
+
 -(id) init
 {
-    return 0;
+    self = [self initWithNumerator:1
+                    andDenominator:1 ];
+    
+    return self;
 }
 
 -(id)description
 {
-    self = [self initWithNumerator:1
-                    andDenominator:1 ] ;
-    return self;
+    
+    return nil;
 }
 
--(WCSFraction*)negative
+-(WCSFraction*)negative: (WCSFraction*)denom
 {
+    int newNumerator;
+    int newDenominator;
+    
     int x = [self Numerator];
     int y = [self Denominator];
     newNumerator = x * -1;
+    newDenominator = y;
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
-                                                     andDenominator:newDenominator];
+           andDenominator:y];
     
     return theAnswer;
 }
 
--(WCSFraction*)reciprocal
+-(WCSFraction*)reciprocal: (WCSFraction*)denom
 {
+    int newNumerator;
+    int newDenominator;
     
     int x = [self Numerator];
     int y = [self Denominator];
@@ -46,69 +74,76 @@
     return theAnswer;
 }
 
--(WCSFraction*)reduced
+-(WCSFraction*)reduced : (WCSFraction*)denom
 {
-    
-    if([self Denominator] < 0)
-    {
-        int newNumerator = [self Numerator]*-1;
-        int newDenominator = [self Denominator]*-1;
-    }
     
     int x = [self Numerator];
     int y = [self Denominator];
-    int newNumerator = x / GCD(a,b);
-    int newDenominator = y / GCD(a,b);
+    int newNumerator;
+    int newDenominator;
+    
+    if([self Denominator] < 0)
+    {
+        newNumerator = (x * -1);
+        newDenominator = (y * -1);
+    }
+    
+    newNumerator = x / gcd(x,y);
+    newDenominator = y / gcd(x,y);
     
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
                                                      andDenominator:newDenominator];
+    
+    return theAnswer;
 }
 
-
-(int) GCD
+-(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction
 {
-    -(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction
-    {
-        //Common math trick:
-        //   Do not compare two things directly :   a  vs b
-        //   Do ompare their difference to zero :  a-b vs 0
-        //   It is often easiest to determine whether
-        //    a value is postive, negative, or zero
-        
-        int difference = [[self minus: otherFraction] numerator];
-        
-        if(difference > 0) return NSOrderedDescending; // self > other
-        if(difference < 0) return NSOrderedAscending; // self < other
-        if(difference == 0) return NSOrderedSame; //self == other
-        
-        return NSOrderedSame; //This line should never execute
-        
-    }
+    //Common math trick:
+    //   Do not compare two things directly :   a  vs b
+    //   Do ompare their difference to zero :  a-b vs 0
+    //   It is often easiest to determine whether
+    //    a value is postive, negative, or zero
     
-    - (BOOL)isEqual:(id)other
-    {
-        if (other == self)
-            return YES; //That's ME!
-        if (!other)
-            return NO; //There's no "that" to compare to
-        if(![other isKindOfClass:[WCSFraction class]])
-            return NO; //Meh, it's not a fraction. Apples'n'oranges.
-        
-        return [self compareToFraction:other]==NSOrderedSame; //Comparing Fractions
-    }
+    int difference = [[self minus: otherFraction] Numerator];
     
-    -(NSUInteger) hash
-    { //This has to do with how these could be stored in sets and dictionaries
-        return MAX([self numerator], [self denominator]);
-    } //Wait until CS222 (Data Structures) to ask about this one
+    if(difference > 0) return NSOrderedDescending; // self > other
+    if(difference < 0) return NSOrderedAscending; // self < other
+    if(difference == 0) return NSOrderedSame; //self == other
     
+    return NSOrderedSame; //This line should never execute
     
-    int gcd(int a, int b)
+}
+
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+        return YES; //That's ME!
+    if (!other)
+        return NO; //There's no "that" to compare to
+    if(![other isKindOfClass:[WCSFraction class]])
+        return NO; //Meh, it's not a fraction. Apples'n'oranges.
+    
+    return [self compareToFraction:other]==NSOrderedSame; //Comparing Fractions
+}
+
+-(NSUInteger) hash
+{ //This has to do with how these could be stored in sets and dictionaries
+    return MAX([self Numerator],
+               [self Denominator]);
+} //Wait until CS222 (Data Structures) to ask about this one
+
+
+
+int gcd(int a, int b)
     { //Euclidean algorithm. It works!
         if(b==0) return a;
         else return gcd(b, a%b);
     }
-    
+
+-(float) floatValue
+{
+    return 0;
 }
 
 -(WCSFraction*)minus: (WCSFraction*) denom
@@ -118,19 +153,19 @@
     return theAnswer;
 }
 
--(WCSFraction*)subtractFrom (WCSFraction*) denom;
+-(WCSFraction*)subtractFrom: (WCSFraction*) denom;
 {
-    return [self add: [denom negative]] ;
+    return [self add:[denom negative: (WCSFraction*)denom]];
 }
 
--(WCSFraction*)divideBy;
+-(WCSFraction*)divideBy: (WCSFraction*) denom;
 {
-    return [self multiply:[denom reciprocal]];
+    return [self multiplyBy:[denom reduced : (WCSFraction*)denom]];
 }
 
--(WCSFraction*)divideInto;
+-(WCSFraction*)divideInto: (WCSFraction*) denom;
 {
-    return [denom multiply:[self reciprocal]];
+    return [denom multiplyBy:[self reduced : (WCSFraction*)denom]];
 }
 
 -(WCSFraction*)add: (WCSFraction*) denom

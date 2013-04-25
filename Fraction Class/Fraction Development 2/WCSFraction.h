@@ -10,24 +10,25 @@
 
 @interface WCSFraction : NSObject
 
-@property (readonly, assign) Numerator;
-@property (readonly, assign) Denominator;
+@property (readwrite, assign) int Numerator;
+@property (readwrite, assign) int Denominator;
 
--(id)initWithNumerator:(int num);
-        andDenominator:(int denom);
--(void)initWithFraction: (WCSFraction*)denom;
+-(id)initWithNumerator:(int) num
+        andDenominator:(int) denom;
+-(id)initWithFraction: (id) denom;
 
 
--(void) floatValue: (float);
+-(float) floatValue;
 -(WCSFraction*)negative: (WCSFraction*)denom;
 -(WCSFraction*)reciprocal: (WCSFraction*)denom;
--(WCSFraction*)sumWith: (WCSFraction*)denom;
 -(WCSFraction*)subtractFrom: (WCSFraction*)denom;
 -(WCSFraction*)minus: (WCSFraction*)denom;
 -(WCSFraction*)multiplyBy: (WCSFraction*)denom;
 -(WCSFraction*)divideBy: (WCSFraction*)denom;
 -(WCSFraction*)divideInto: (WCSFraction*)denom;
 -(WCSFraction*)reduced: (WCSFraction*)denom;
--(int) GCD (int x, int y);
+-(WCSFraction*)add: (WCSFraction*) denom;
+
+int gcd (int x, int y);
 
 @end

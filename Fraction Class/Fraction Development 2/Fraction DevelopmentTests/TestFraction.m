@@ -39,8 +39,7 @@
     WCSFraction* LHS;
     WCSFraction* RHS;
 }
-
-- (void)setUp
+-(void)setUp
 {
     [super setUp];
     frac_two = [[WCSFraction alloc] initWithInteger:2];
