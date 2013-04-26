@@ -29,6 +29,19 @@
     return nil;
 }
 
+-(id)initWithInteger: (int) num
+{
+    initWithNumerator:(int) num
+    andDenominator:(int) 1
+    
+    WCSFraction* aFraction;
+    
+    aFraction = [[WCSFraction alloc] initWithNumerator:num
+                                           andDenominator:1 ];
+    
+    return aFraction;
+}
+
 
 -(id) init
 {

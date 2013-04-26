@@ -7,9 +7,58 @@
 //
 
 #import "WCSMutableFraction.h"
+#import "WCSFraction.h"
 
 @implementation WCSMutableFraction
 
-@synthesize Numerator = _AOII_numerator
+@synthesize Numerator = _AOII_numerator;
+@synthesize Denominator = _AOII_denominator;
+
+
+-(void)setNumerator:(int)num
+       andDenominator:(int)denom
+{
+    int GCD = gcd(num, denom);
+    
+    [self setNumerator: num/GCD] ;
+    [self setDenominator:denom/GCD];
+    
+}
+
+-(void)modifyByAdding: (WCSFraction*)sum
+{
+    WCSFraction* theAnswer = [self add: sum];
+    
+    [self setNumerator: [theAnswer Numerator]
+        andDenominator: [theAnswer Denominator]];
+}
+
+-(void)modifyByMultiplying: (WCSFraction*)product
+{
+    WCSFraction* theAnswer = [self multiplyBy:product];
+    
+    [self setNumerator: [theAnswer Numerator]
+        andDenominator: [theAnswer Denominator]];
+}
+
+-(void)modifyByInverting: (WCSFraction*)inverse
+{
+    WCSFraction* theAnswer = [self reciprocal:inverse];
+    
+    [self setNumerator: [theAnswer Numerator]
+        andDenominator: [theAnswer Denominator]];
+    
+}
+
+-(void)modifyByNegating: (WCSFraction*)negative
+{
+    WCSFraction* theAnswer = [self negative:negative];
+    
+    [self setNumerator: [theAnswer Numerator]
+        andDenominator: [theAnswer Denominator]];
+}
+
+
+
 
 @end
