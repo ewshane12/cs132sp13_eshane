@@ -198,5 +198,13 @@ int gcd(int a, int b)
     return nil;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    WCSFraction* aFraction;
+    aFraction = [[WCSFraction allocWithZone: zone]initWithFraction:self];
+    
+    return aFraction;
+}
+
 
 @end

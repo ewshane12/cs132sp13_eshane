@@ -15,6 +15,7 @@
 @synthesize Denominator = _AOII_denominator;
 
 
+
 -(void)setNumerator:(int)num
        andDenominator:(int)denom
 {
@@ -56,6 +57,14 @@
     
     [self setNumerator: [theAnswer Numerator]
         andDenominator: [theAnswer Denominator]];
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    WCSFraction* aFraction;
+    aFraction = [[WCSFraction allocWithZone: zone]initWithFraction:self];
+    
+    return aFraction;
 }
 
 
