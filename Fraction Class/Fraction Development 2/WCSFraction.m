@@ -29,15 +29,11 @@
     return nil;
 }
 
--(id)initWithInteger: (int) num
+-(id)initWithInteger: (int) anInteger
 {
-    initWithNumerator:(int) num
-    andDenominator:(int) 1
-    
     WCSFraction* aFraction;
     
-    aFraction = [[WCSFraction alloc] initWithNumerator:num
-                                           andDenominator:1 ];
+    aFraction = [[WCSFraction alloc] initWithNumerator:anInteger andDenominator:1];
     
     return aFraction;
 }
@@ -57,7 +53,7 @@
     return nil;
 }
 
--(WCSFraction*)negative: (WCSFraction*)denom
+-(WCSFraction*)negative
 {
     int newNumerator;
     int newDenominator;
@@ -72,7 +68,7 @@
     return theAnswer;
 }
 
--(WCSFraction*)reciprocal: (WCSFraction*)denom
+-(WCSFraction*)reciprocal
 {
     int newNumerator;
     int newDenominator;
@@ -87,7 +83,7 @@
     return theAnswer;
 }
 
--(WCSFraction*)reduced : (WCSFraction*)denom
+-(WCSFraction*)reduced
 {
     
     int x = [self Numerator];
@@ -168,17 +164,17 @@ int gcd(int a, int b)
 
 -(WCSFraction*)subtractFrom: (WCSFraction*) denom;
 {
-    return [self add:[denom negative: (WCSFraction*)denom]];
+    return [self add:[denom negative]];
 }
 
 -(WCSFraction*)divideBy: (WCSFraction*) denom;
 {
-    return [self multiplyBy:[denom reduced : (WCSFraction*)denom]];
+    return [self multiplyBy:[denom reduced]];
 }
 
 -(WCSFraction*)divideInto: (WCSFraction*) denom;
 {
-    return [denom multiplyBy:[self reduced : (WCSFraction*)denom]];
+    return [denom multiplyBy:[self reduced]];
 }
 
 -(WCSFraction*)add: (WCSFraction*) denom

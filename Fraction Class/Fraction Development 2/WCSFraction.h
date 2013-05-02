@@ -16,17 +16,18 @@
 -(id)initWithNumerator:(int) num
         andDenominator:(int) denom;
 -(id)initWithFraction: (id) denom;
+-(id)initWithInteger: (int) anInteger;
 
 
 -(float) floatValue;
--(WCSFraction*)negative: (WCSFraction*)denom;
--(WCSFraction*)reciprocal: (WCSFraction*)denom;
+-(WCSFraction*)negative;
+-(WCSFraction*)reciprocal;
 -(WCSFraction*)subtractFrom: (WCSFraction*)denom;
--(WCSFraction*)minus: (WCSFraction*)denom;
+-(WCSFraction*)minus: (WCSFraction*) denom;
 -(WCSFraction*)multiplyBy: (WCSFraction*)denom;
 -(WCSFraction*)divideBy: (WCSFraction*)denom;
 -(WCSFraction*)divideInto: (WCSFraction*)denom;
--(WCSFraction*)reduced: (WCSFraction*)denom;
+-(WCSFraction*)reduced;
 -(WCSFraction*)add: (WCSFraction*) denom;
 
 int gcd (int x, int y);

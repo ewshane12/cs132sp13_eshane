@@ -10,4 +10,12 @@
 
 @interface WCSMutableFraction : WCSFraction
 
+-(void)setNumerator:(int)num
+     andDenominator:(int)denom;
+
+-(void)modifyByAdding: (WCSFraction*)sum;
+-(void)modifyByMultiplying: (WCSFraction*)product;
+-(void)modifyByInverting: (WCSFraction*)inverse;
+-(void)modifyByNegating: (WCSFraction*)negative;
+
 @end
