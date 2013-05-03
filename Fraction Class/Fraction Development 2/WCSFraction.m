@@ -8,25 +8,41 @@
 
 #import "WCSFraction.h"
 
+
 @implementation WCSFraction
 
--(id)initWithNumerator:(int) num
-        andDenominator:(int) denom
+@synthesize Numerator = _initializedNumerator;
+@synthesize Denominator = _initializedDenominator;
+
+-(id) initWithNumerator:(int) num
+         andDenominator:(int) denom
 {
-    _Numerator = num;
-    _Denominator = denom;
+    
+    int a = num;
+    int b = denom;
+    int newNumerator = a / gcd( a , b ) ;
+    int newDenominator = b / gcd( a , b ) ;
+    
+    if (newDenominator<0)
+    {
+        newDenominator = newDenominator*-1;
+        newNumerator = newNumerator*-1;
+    }
     
     self = [super init];
     if (self) {
-        [self setNumerator:num];
-        [self setDenominator:denom];
+        _initializedNumerator = newNumerator;
+        _initializedDenominator = newDenominator;
     }
     return self;
 }
 
--(id)initWithFraction: (id) denom
+
+-(id) initWithFraction:FractionPointer
 {
-    return nil;
+    WCSFraction* theFraction;
+    theFraction = [[WCSFraction alloc] initWithNumerator:[FractionPointer Numerator] andDenominator:[FractionPointer Denominator]];
+    return theFraction;
 }
 
 -(id)initWithInteger: (int) anInteger
@@ -39,18 +55,36 @@
 }
 
 
--(id) init
-{
-    self = [self initWithNumerator:1
-                    andDenominator:1 ];
-    
-    return self;
-}
-
 -(id)description
 {
+
+    if([self Denominator] == 1)
+    {
+        return [NSString stringWithFormat: @"%d" , [self Numerator]];
+    }
+    else
+        
+        if([self Denominator] == 0)
+        {
+            return [NSString stringWithFormat: @"ERROR" ];
+        }
+        else
+            if ([self Denominator] == [self Numerator])
+            {
+                return [NSString stringWithFormat:@"%d", 1];
+            }
+        else
+            if ([self Denominator] == 1)
+            {
+                return [NSString stringWithFormat:@"%d", [self Numerator]];
+            }
+            
+            
+            
+        {
+            return [NSString stringWithFormat: @"%d/%d" , [self Numerator] , [self Denominator]];
+        }
     
-    return nil;
 }
 
 -(WCSFraction*)negative
@@ -63,7 +97,7 @@
     newNumerator = x * -1;
     newDenominator = y;
     WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
-           andDenominator:y];
+                                                     andDenominator:y];
     
     return theAnswer;
 }
@@ -75,36 +109,14 @@
     
     int x = [self Numerator];
     int y = [self Denominator];
-    newNumerator = y;
-    newDenominator = x;
-    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
-                                                     andDenominator:newDenominator];
+    newNumerator = x;
+    newDenominator = y;
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newDenominator
+                                                     andDenominator:newNumerator];
     
     return theAnswer;
 }
 
--(WCSFraction*)reduced
-{
-    
-    int x = [self Numerator];
-    int y = [self Denominator];
-    int newNumerator;
-    int newDenominator;
-    
-    if([self Denominator] < 0)
-    {
-        newNumerator = (x * -1);
-        newDenominator = (y * -1);
-    }
-    
-    newNumerator = x / gcd(x,y);
-    newDenominator = y / gcd(x,y);
-    
-    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
-                                                     andDenominator:newDenominator];
-    
-    return theAnswer;
-}
 
 -(NSComparisonResult) compareToFraction:(WCSFraction*) otherFraction
 {
@@ -155,9 +167,9 @@ int gcd(int a, int b)
     return 0;
 }
 
--(WCSFraction*)minus: (WCSFraction*) denom
+-(WCSFraction*)minus: (WCSFraction*) denom;
 {
-    WCSFraction* theAnswer = [self subtractFrom: denom];
+    WCSFraction* theAnswer = [denom subtractFrom: self];
     
     return theAnswer;
 }
@@ -169,12 +181,12 @@ int gcd(int a, int b)
 
 -(WCSFraction*)divideBy: (WCSFraction*) denom;
 {
-    return [self multiplyBy:[denom reduced]];
+    return [self multiplyBy:[denom reciprocal]];
 }
 
 -(WCSFraction*)divideInto: (WCSFraction*) denom;
 {
-    return [denom multiplyBy:[self reduced]];
+    return [denom multiplyBy:[self reciprocal]];
 }
 
 -(WCSFraction*)add: (WCSFraction*) denom
@@ -212,7 +224,7 @@ int gcd(int a, int b)
 
 -(WCSFraction*)multiplyBy: (WCSFraction*) denom
 {
-    return nil;
+    return [self multiply:denom];
 }
 
 - (id)copyWithZone:(NSZone *)zone

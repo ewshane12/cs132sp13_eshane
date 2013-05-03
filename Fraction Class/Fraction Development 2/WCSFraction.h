@@ -15,7 +15,7 @@
 
 -(id)initWithNumerator:(int) num
         andDenominator:(int) denom;
--(id)initWithFraction: (id) denom;
+-(id)initWithFraction: (id) PointerToFraction;
 -(id)initWithInteger: (int) anInteger;
 
 
@@ -27,7 +27,6 @@
 -(WCSFraction*)multiplyBy: (WCSFraction*)denom;
 -(WCSFraction*)divideBy: (WCSFraction*)denom;
 -(WCSFraction*)divideInto: (WCSFraction*)denom;
--(WCSFraction*)reduced;
 -(WCSFraction*)add: (WCSFraction*) denom;
 -(WCSFraction*)multiply:(WCSFraction*) denom;
 
