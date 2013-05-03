@@ -193,6 +193,23 @@ int gcd(int a, int b)
     return theAnswer;
 }
 
+-(WCSFraction*)multiply:(WCSFraction*) denom
+{
+    int a =[self Numerator] ;
+    int b = [self Denominator] ;
+    int c = [denom Numerator] ;
+    int d = [denom Denominator] ;
+    
+    int newNumerator = a*c;
+    int newDenominator = b*d ;
+    
+    WCSFraction* theAnswer = [[WCSFraction alloc] initWithNumerator:newNumerator
+                                                     andDenominator:newDenominator];
+    
+    return theAnswer ;
+    
+}
+
 -(WCSFraction*)multiplyBy: (WCSFraction*) denom
 {
     return nil;

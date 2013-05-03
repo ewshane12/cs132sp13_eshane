@@ -15,7 +15,7 @@
 
 -(void)modifyByAdding: (WCSFraction*)sum;
 -(void)modifyByMultiplying: (WCSFraction*)product;
--(void)modifyByInverting: (WCSFraction*)inverse;
--(void)modifyByNegating: (WCSFraction*)negative;
+-(void)modifyByInverting;
+-(void)modifyByNegating;
 
 @end

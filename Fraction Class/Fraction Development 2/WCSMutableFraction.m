@@ -42,7 +42,7 @@
         andDenominator: [theAnswer Denominator]];
 }
 
--(void)modifyByInverting: (WCSFraction*)inverse
+-(void)modifyByInverting;
 {
     WCSFraction* theAnswer = [self reciprocal];
     
@@ -51,7 +51,7 @@
     
 }
 
--(void)modifyByNegating: (WCSFraction*)negative
+-(void)modifyByNegating
 {
     WCSFraction* theAnswer = [self negative];
     

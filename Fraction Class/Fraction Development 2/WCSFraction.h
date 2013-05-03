@@ -29,6 +29,7 @@
 -(WCSFraction*)divideInto: (WCSFraction*)denom;
 -(WCSFraction*)reduced;
 -(WCSFraction*)add: (WCSFraction*) denom;
+-(WCSFraction*)multiply:(WCSFraction*) denom;
 
 int gcd (int x, int y);
 
