@@ -2,6 +2,20 @@
 
 @implementation Calculator
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        //Set up initial calculator conditions here
+        [self setNumberOnScreen:0];
+        [self setNumberAccumulated:0];
+        [self setOperatingPending:'?'];
+    }
+    return self;
+}
+
+
 -(void) pressKey: (char) keyPress
 {
 
@@ -12,7 +26,7 @@
     
     else if([self isClearScreenKey:keyPress])
     {
-        [self clearNumberOnScreen:0];
+        [self clearNumberOnScreen];
     }
     else if ([self isResultKey:keyPress])
     {
@@ -25,8 +39,8 @@
     }
     else if ([self isClearAllKey: keyPress])
     {
-        [self clearOperator: keyPress];
-        [self clearAccumulator : keyPress];
+        [self clearOperator];
+        [self clearAccumulator];
     }
      
     else
@@ -37,17 +51,17 @@
 return;
 }
 
--(void) clearNumberOnScreen:(char)numClearer
+-(void) clearNumberOnScreen
 {
     [self setNumberOnScreen:0];
 }
 
--(void) clearAccumulator:(char)accClearer
+-(void) clearAccumulator
 {
     [self setNumberAccumulated:0];
 }
 
--(void) clearOperator:(char)opClearer
+-(void) clearOperator
 {
     [self setOperatingPending:'?'];
 }
@@ -67,7 +81,7 @@ return;
 
 -(BOOL) isClearScreenKey: (char) someChar
 {
-    if (someChar == 67 || someChar == 99)
+    if (someChar == 'c' || someChar == 'C')
     {
         return YES;
     }
@@ -79,7 +93,7 @@ return;
 
 -(BOOL) isClearAllKey: (char) someChar
 {
-    if (someChar == 65 || someChar == 97)
+    if (someChar == 'a' || someChar == 'A')
     {
         return YES;
     }
@@ -103,78 +117,85 @@ return;
 
 -(BOOL) isArithmeticAllKey: (char) someChar
 {
-    if (someChar == '%' || someChar == '*' || someChar == '+' || someChar == '-' || someChar == '/')
+    switch (someChar)
     {
-        return YES;
+        case '%':
+            return YES;
+            break;
+            
+        case '*':
+            return YES;
+            break;
+            
+        case '+':
+            return YES;
+            break;
+            
+        case '-':
+            return YES;
+            break;
+            
+        case '/':
+            return YES;
+            break;
+            
+        default:
+            NSLog(@"ERROR");
+            return NO;
+            break;
     }
-    else
-    {
-        return NO;
-    }
+    
 }
 
 -(void) registerArithmetic:(char)theOperator
 {
     [self setNumberAccumulated:[self numberOnScreen]];
-    [self clearNumberOnScreen:0];
+    [self clearNumberOnScreen];
     [self setOperatingPending:theOperator];
 }
 
 -(void) computeAndDisplayResult
 {
-    int RHS = _numberOnScreen;
-    int LHS = _numberAccumulated;
     int result;
     
-        if([self operatingPending] == '%')
-        {
-            result = LHS % RHS;
-        }
-        if ([self operatingPending] == '*')
-        {
-            result = LHS * RHS;
-        }
-        if ([self operatingPending] == '+')
-        {
-            result = LHS + RHS;
-        }
-        if ([self operatingPending] == '-')
-        {
-            result = LHS - RHS;
-        }
-        if ([self operatingPending] == '/')
-        {
-           result = LHS / RHS;
-        }
-        else
-        {
-            [self setNumberOnScreen:[self numberOnScreen]];
-        }
+    switch ([self operatingPending])
+    {
+        case '%':
+            result = [self numberAccumulated] % [self numberOnScreen];
+            break;
+            
+        case '*':
+            result = [self numberAccumulated] * [self numberOnScreen];
+            break;
+            
+        case '+':
+            result = [self numberAccumulated] + [self numberOnScreen];
+            break;
+        
+        case '-':
+            result = [self numberAccumulated] - [self numberOnScreen];
+            break;
+            
+        case '/':
+            result = [self numberAccumulated] / [self numberOnScreen];
+            break;
+            
+        default:
+            break;
+    }
     
-    [self setNumberOnScreen:result];
-    [self clearAccumulator:0];
-    [self clearOperator:'?'];
+    [self setNumberAccumulated:[self numberOnScreen]];
+    [self clearNumberOnScreen];
+    [self clearOperator];
 } 
 
 
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-        //Set up initial calculator conditions here
-        _numberOnScreen = 0;
-        _numberAccumulated = 0;
-        _operatingPending = '+';
-    }
-    return self;
-}
-
 -(void) appendDigit: (char) changedDigit
 {
+    int oldValue;
     //added breakpoint
-    int oldValue = _numberOnScreen;
-    _numberOnScreen = (_numberOnScreen * 10 + changedDigit - 48);
+    oldValue = [self numberOnScreen];
+    oldValue = (oldValue * 10 + changedDigit - 48);
 }
 
 -(NSString*) description

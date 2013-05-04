@@ -100,7 +100,7 @@
 }
 - (void)testPendingOperatorStartsAsQuestionMark
 {
-    assertThat(sut, hasProperty(@"operationPending", equalToChar('?')));
+    assertThat(sut, hasProperty(@"operatingPending", equalToChar('?')));
 }
 
 - (void)testPressingMinusSetsOperationPendingToMinus

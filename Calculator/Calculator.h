@@ -10,9 +10,9 @@
 -(void) appendDigit: (char) changedDigit;
 -(void) registerArithmetic:(char)theOperator;
 -(void) computeAndDisplayResult;
--(void) clearAccumulator: (char) accClearer;
--(void) clearOperator: (char) opClearer;
--(void) clearNumberOnScreen: (char) numClearer;
+-(void) clearAccumulator;
+-(void) clearOperator;
+-(void) clearNumberOnScreen;
 
 @end
 
