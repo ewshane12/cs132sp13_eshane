@@ -14,6 +14,13 @@
 @synthesize Numerator = _initializedNumerator;
 @synthesize Denominator = _initializedDenominator;
 
+-(id) init
+{
+    self = [self initWithNumerator:1 andDenominator:1];
+    
+    return self;
+}
+
 -(id) initWithNumerator:(int) num
          andDenominator:(int) denom
 {
